@@ -1,7 +1,6 @@
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Json;
-using System.Reflection;
 using System.Security.Cryptography;
 using System.Text.Json.Serialization;
 using DeployCraft.Server.Data;
@@ -24,9 +23,7 @@ public static class UpdateCheck
     }
 
     /// <summary>Installed version, pre-release included ("1.0.0-rc.1"), without the build number.</summary>
-    public static string? CurrentVersion =>
-        typeof(UpdateCheck).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion.Split('+')[0]
-        ?? typeof(UpdateCheck).Assembly.GetName().Version?.ToString(3);
+    public static string? CurrentVersion => AboutInfo.InstalledVersion(typeof(UpdateCheck).Assembly);
 
     /// <summary>The new version, or null (already up to date, no Internet access...).</summary>
     public static async Task<UpdateInfo?> FindAsync()

@@ -18,6 +18,15 @@ public class AboutInfoTests
     }
 
     [Fact]
+    public void InstalledVersion_KeepsPreReleaseSuffix()
+    {
+        Assert.Equal("1.1.0-rc.2", AboutInfo.InstalledVersion("1.1.0-rc.2+6fc422c", new Version(1, 1, 0, 0)));
+        Assert.Equal("1.0.1", AboutInfo.InstalledVersion("1.0.1+bad45a2", new Version(1, 0, 1, 0)));
+        Assert.Equal("1.1.0", AboutInfo.InstalledVersion(null, new Version(1, 1, 0, 0)));
+        Assert.Null(AboutInfo.InstalledVersion(null, null));
+    }
+
+    [Fact]
     public void Version_FallsBackWhenUnknown()
     {
         Assert.Equal("version inconnue", AboutInfo.Version(null));

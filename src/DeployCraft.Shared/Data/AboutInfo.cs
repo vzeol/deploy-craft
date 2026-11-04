@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace DeployCraft.Server.Data;
 
 /// <summary>Content of the console "À propos" window (shared so it can be tested).</summary>
@@ -28,6 +30,17 @@ public static class AboutInfo
         lines.Add(Msg.Format("AboutInfo_RuntimeLine", runtime));
         return string.Join(Environment.NewLine, lines);
     }
+
+    /// <summary>
+    /// Installed version of an assembly, pre-release included ("1.1.0-rc.2"), without the build metadata.
+    /// Assembly.GetName().Version drops the pre-release suffix, so a release candidate would look final.
+    /// </summary>
+    public static string? InstalledVersion(Assembly assembly) =>
+        InstalledVersion(assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion,
+            assembly.GetName().Version);
+
+    public static string? InstalledVersion(string? informational, System.Version? version) =>
+        !string.IsNullOrWhiteSpace(informational) ? informational.Split('+')[0] : version?.ToString(3);
 
     public static string Version(string? version) => string.IsNullOrWhiteSpace(version) ? Msg.Get("AboutInfo_UnknownVersion") : version;
 }

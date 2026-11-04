@@ -9,7 +9,7 @@ namespace DeployCraft.Console;
 /// <summary>Aide › À propos: console and service versions, license, project page.</summary>
 public partial class AboutWindow : Window
 {
-    private static readonly string? Version = typeof(AboutWindow).Assembly.GetName().Version?.ToString(3);
+    private static readonly string? Version = AboutInfo.InstalledVersion(typeof(AboutWindow).Assembly);
 
     public AboutWindow()
     {
