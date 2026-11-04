@@ -21,7 +21,7 @@ Information specific to the maintainer's environment (servers, test computers, a
 ## Current version: 1.0.1 — next: 1.1.0
 
 **1.0.1** is 1.0.0 plus one fix: long scripts in the step editor scroll instead of growing past the window (#188,
-#189). It is built from the `release/1.0.1` branch (tag `v1.0.1`), not from `main`. A small fix like this one gets
+#189). It is built from the tag `v1.0.1` (1.0.0 plus that fix), not from `main`. A small fix like this one gets
 an official patch release (x.y.z+1), not a pre-release.
 
 **1.1.0-rc.1** is the release candidate of 1.1.0, built from `main` after #162. The maintainer updates their fleet
