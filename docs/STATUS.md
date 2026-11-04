@@ -18,12 +18,17 @@ starts once they have validated everything**.
 Information specific to the maintainer's environment (servers, test computers, accounts) stays in their notes
 **outside the repository**: never copy it here.
 
-## Current version: 1.0.0 — next: 1.1.0-rc.1
+## Current version: 1.0.1 — next: 1.1.0
+
+**1.0.1** is 1.0.0 plus one fix: long scripts in the step editor scroll instead of growing past the window (#188,
+#189). It is built from the `release/1.0.1` branch (tag `v1.0.1`), not from `main`. A small fix like this one gets
+an official patch release (x.y.z+1), not a pre-release.
 
 **1.1.0-rc.1** is the release candidate of 1.1.0, built from `main` after #162. The maintainer updates their fleet
-with it, uses it for a few days, then the same code is published as 1.1.0.
+with it, uses it for a few days, then 1.1.0 is published from `main`.
 
-New since 1.0.0 (PRs #143 to #162):
+New on `main` since 1.0.0 (PRs #143 to #189):
+- Long scripts in the step editor scroll, vertically and horizontally (#189, also in 1.0.1).
 - Main window start size fits small screens (#125).
 - PowerShell step output preserves Unicode (#143).
 - Repository: Dependabot monthly grouped updates, issue triage (`docs/TRIAGE.md`), support guide (`SUPPORT.md`),
@@ -41,8 +46,8 @@ New since 1.0.0 (PRs #143 to #162):
   `Presentation/`, screen by screen (#162, #167, #168, #169, #170: home, packages, deployments, schedules, library,
   navigation and refresh).
 
-**Next, after 1.1.0-rc.1 (on the maintainer's fleet):** the refactorings above (#164 to #170) go into 1.1.0-rc.2
-or 1.1.0, after the maintainer's validation.
+**Next, after 1.1.0-rc.1 (on the maintainer's fleet):** everything above, including the refactorings (#164 to
+#170), goes into 1.1.0 after the maintainer's validation.
 
 Contributors: the maintainer's Claude sessions and Codex (OpenAI), which works from its own clone through PRs
 (`AGENTS.md`); every PR is reviewed by another session before merging.
