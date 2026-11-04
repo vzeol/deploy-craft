@@ -159,6 +159,9 @@ public partial class PackageWindow : Window
         RebootPanel.Visibility = Show(f.Reboot);
         MessagePanel.Visibility = Show(f.Message);
         CommandLabel.Visibility = CommandBox.Visibility = Show(f.Command);
+        // A command or script fills the free height and scrolls, instead of growing past the window.
+        CommandRow.Height = f.Command ? new GridLength(1, GridUnitType.Star) : GridLength.Auto;
+        FillRow.Height = f.Command ? GridLength.Auto : new GridLength(1, GridUnitType.Star);
         foreach (UIElement el in new UIElement[] { NestedLabel, NestedBox, NestedHint })
             el.Visibility = Show(f.Nested);
         if (f.Nested)
