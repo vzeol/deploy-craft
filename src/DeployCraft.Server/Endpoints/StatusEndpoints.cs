@@ -1,4 +1,5 @@
 using System.Security.Principal;
+using DeployCraft.Server.Data;
 using DeployCraft.Server.Remote;
 
 namespace DeployCraft.Server.Endpoints;
@@ -19,7 +20,7 @@ internal static class StatusEndpoints
                 elevated = new WindowsPrincipal(identity).IsInRole(WindowsBuiltInRole.Administrator),
                 defaultCredential = all.FirstOrDefault(c => c.IsDefault) ?? all.FirstOrDefault(),
                 unreadableCredentials = all.Count(c => c.PasswordUnreadable),
-                version = typeof(Program).Assembly.GetName().Version?.ToString(3),
+                version = AboutInfo.InstalledVersion(typeof(Program).Assembly),
                 connectedAs = context.User.Identity?.Name,
             };
         });
