@@ -175,9 +175,9 @@
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
                                 <RowDefinition Height="Auto" />
+                                <RowDefinition x:Name="CommandRow" Height="Auto" />
                                 <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
+                                <RowDefinition x:Name="FillRow" Height="*" />
                             </Grid.RowDefinitions>
 
                             <!-- Installer -->
@@ -271,7 +271,8 @@
                             <TextBlock x:Name="CommandLabel" Grid.Row="5" Style="{StaticResource FieldLabel}" Text="{local:T StepSummary_TypeCommand}" VerticalAlignment="Top" Margin="0,4,12,0" />
                             <TextBox x:Name="CommandBox" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" MinHeight="26"
                                      Text="{Binding Command, UpdateSourceTrigger=PropertyChanged}" FontFamily="Consolas"
-                                     AcceptsReturn="True" AcceptsTab="True" VerticalContentAlignment="Top" VerticalScrollBarVisibility="Auto" Margin="0,0,0,10" />
+                                     AcceptsReturn="True" AcceptsTab="True" VerticalContentAlignment="Top"
+                                     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="0,0,0,10" />
 
                             <!-- File copy -->
                             <Grid x:Name="CopyPanel" Grid.RowSpan="8" Grid.ColumnSpan="3" VerticalAlignment="Top">
